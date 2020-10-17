@@ -17,7 +17,7 @@ long long * check_word(char *args){
 	if(t){ start = 5; }
 	if(t+f == 0){ return (null); }
 	if(args[start] == '-'){start++; sign = -1;}
-	for(int i = start; i < strlen(args); ++i){
+	for(long unsigned int i = start; i < strlen(args); ++i){
 		res*= 10;
 		if(args[i] < 48 || args[i] > 57){break;}
 		res += args[i]-48;
@@ -29,8 +29,9 @@ long long * check_word(char *args){
 }
 
 int main(int argc, char *argv[]){
-	long long from = 0, to= 0, *t, *arr; //t - temporary variable for parsing arguments
+	long long from = 0, to= 0, *t, arr[101]; //t - temporary variable for parsing arguments
 	int tob = 0, fromb = 0, res = 0; // tob, fromb - count of args "from" and "b", res - result
+	for (int i = 0; i < 101; i++) arr[i] = 0;
 	if(argc < 2){return(-1);}
 	for (int i = 1; i < argc; ++i){
 		t = check_word(argv[i]);
