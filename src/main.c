@@ -44,16 +44,26 @@ int main(int argc, char *argv[]){
 	if(argc > 3){return(-2);}
 	int size = 0;
 	char c = ' ';
-	while (c == ' ') scanf("%lli%c", &arr[size++], &c);
+	while (c == ' '){
+		scanf("%lli%c", &arr[size++], &c);
+		if(tob && (to <= arr[size-1])) {
+			fprintf(stderr, "%lli ", arr[size-1]);
+			size--;
+		}
+		if(fromb && (from >= arr[size-1])){
+			fprintf(stdout, "%lli ", arr[size-1]);
+			size--;
+		}
+	}
 	long long copy[101];
 	for (int j = 0; j < size; ++j){
-		if(tob && (to <= arr[j])) fprintf(stderr, "%lli ", arr[j]);
-		if(fromb && (from >= arr[j])) fprintf(stdout, "%lli ", arr[j]);
 		copy[j] = arr[j];
 	}
 	sort(arr,size);
 	for (int j = 0; j < size; ++j){
 		if(arr[j] != copy[j]) {res++;}
+		printf("%lli ", arr[j]);
 	}
+	printf("\n%i\n", res);
 	return(res);
 }
