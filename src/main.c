@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
 	long long copy[101];
 	for (int j = 0; j < size; ++j){
 		if(tob && (to <= arr[j])) fprintf(stderr, "%lli ", arr[j]);
-		if(fromb && (from >= arr[j])) printf("%lli ", arr[j]);
+		if(fromb && (from >= arr[j])) fprintf(stdout, "%lli ", arr[j]);
 		copy[j] = arr[j];
 	}
 	sort(arr,size);
