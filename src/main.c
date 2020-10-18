@@ -62,8 +62,6 @@ int main(int argc, char *argv[]){
 	sort(arr,size);
 	for (int j = 0; j < size; ++j){
 		if(arr[j] != copy[j]) {res++;}
-		printf("%lli ", arr[j]);
 	}
-	printf("\n%i\n", res);
 	return(res);
 }
