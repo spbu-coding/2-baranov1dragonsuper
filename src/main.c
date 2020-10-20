@@ -45,15 +45,17 @@ int main(int argc, char *argv[]){
 	int size = 0;
 	char c = ' ';
 	while (c == ' '){
+		int t1 = 0; //temp variable to rewrite current element instead of next in case of bad int (arr[i] > to or arr[i] < from)
 		scanf("%lli%c", &arr[size++], &c);
 		if(tob && (to <= arr[size-1])) {
 			fprintf(stderr, "%lli ", arr[size-1]);
-			size--;
+			t1++;
 		}
 		if(fromb && (from >= arr[size-1])){
 			fprintf(stdout, "%lli ", arr[size-1]);
-			size--;
+			t1++;
 		}
+		size -= (t1 >= 1);
 	}
 	long long copy[101];
 	for (int j = 0; j < size; ++j){
